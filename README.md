@@ -1,5 +1,4 @@
-<!-- ![Music](/pics/facemusic.gif) -->
-<img src="/pics/facemusic.gif"> <h3> Welcome to Sonic Buster 8 home page!</h3>
+##![Music](/pics/facemusic.gif) Welcome to Sonic Buster 8 home page!
 
 ![Sonic Buster 8](/pics/sb8b.jpg)
 
