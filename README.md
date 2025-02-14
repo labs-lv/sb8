@@ -11,7 +11,7 @@ Main features
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
 ## Hardware configuration
-To select I/O port, IRQ and DMA for Sonic Buster 8 use jumpers JP1, JP2 and JP3 respectively.
+To select I/O port, IRQ and DMA for Sonic Buster 8 use jumpers JP1, JP2 and JP3 respectively:
 
 ![Jumpers](/pics/sb8jumpers.jpg)\
 
@@ -35,10 +35,13 @@ SET BLASTER = A220 D1 I5 T3
 ## Line output
 
 ## Firmware updates
+Sonic Buter 8 firmware is based on a reverse-engineered original SB2.0 firmware... it constantly envolves ?
+
 ![Download](/pics/download.gif) [SB8VER.ZIP](/downloads/SB8VER.ZIP) - check firmware version of your Sonic Buster 8 sound card.
 
-![New](/pics/new.gif) ![Download](/pics/download.gif) [SB8FW401.ZIP](/downloads/SB8FW401.ZIP) - **Sonic Buster firmware v4.01**. Download the archive, extract files and run `SB8FLASH.EXE`. Follow on-screen instructions to make an update.\
-![Warning](/pics/warn.gif) ***Should NOT be run from Windows environment! Make sure that no other programs are using Sonic Buster 8 hardware during the update!***
+![New](/pics/new.gif) ![Download](/pics/download.gif) [SB8FW401.ZIP](/downloads/SB8FW401.ZIP) - **Sonic Buster 8 firmware v4.01**.\
+This update fixes DMA timing issues on some machines and is recommended for every Sonic Buster 8 user.\ Download the archive, extract files to a separate directory and run `SB8FLASH.EXE`. Follow on-screen instructions to make an update.\
+![Warning](/pics/warn.gif) ***The update utility should NOT be run from Windows environment! Also make sure that no other programs are using Sonic Buster 8 hardware during the update!***
 
 ## Sonic Buster 8 in DOS
 
