@@ -11,13 +11,16 @@ Main features
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
 ## Hardware configuration
-![Jumpers](/pics/sb8jumpers.jpg) In order to select I/O port, IRQ and DMA for Sonic Buster 8 use jumpers JP1, JP2 and JP3 respectively.\
+![Jumpers](/pics/sb8jumpers.jpg)\
+In order to select I/O port, IRQ and DMA for Sonic Buster 8 use jumpers JP1, JP2 and JP3 respectively.\
 You also need to set a `BLASTER` variable for your DOS environment by adding corresponding line to `C:\AUTOEXEC.BAT`. For hardware settings on the picture above the line should look like this:
+
 `SET BLASTER = A220 D1 I5 T3`
-`Axxx` – I/O address (200/220/240/260/280/2A0/2C0/2E0)
-`Dx` – 8-bit DMA setting (1/3)
-`Ix` – IRQ number (3/5/7)
-`Tx` – Sound Blaster model: 3 is for SB 2.0, so is for the Sonic Buster 8
+
+`Axxx` – I/O address (200/220/240/260/280/2A0/2C0/2E0)\
+`Dx` – 8-bit DMA setting (1/3)\
+`Ix` – IRQ number (3/5/7)\
+`Tx` – Sound Blaster model: 3 is for SB 2.0, so is for the Sonic Buster 8\
 
 ## PC-Speaker input
 
