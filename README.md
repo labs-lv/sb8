@@ -24,7 +24,14 @@ Main features
 ### Line output
 
 ### Firmware updates
-![Download](/pics/download.gif) [SB8VER.ZIP](/downloads/SB8VER.ZIP) - please download this utility to check firmware version of your Sonic Buster 8 sound card.
+> [!IMPORTANT]
+> In order to update the firmware successfully it should not be made from a multi-tasking environment (i.e. Windows). Use DOS environment instead and make sure that no other programs (like a background music player) can access Sonic Buster 8 hardware during the update. 
+
+![Download](/pics/download.gif) [SB8VER.ZIP](/downloads/SB8VER.ZIP) - download this utility to check firmware version of your Sonic Buster 8 sound card.
+
+![New](/pics/new.gif) **Latest firmware version is 4.01**
+
+![Download](/pics/download.gif) [SB8FW401.ZIP](/downloads/SB8FW401.ZIP) - download this firmware update kit. After extraction there will be 2 files: 'SB8FLASH.EXE' - a firmware update utility and 'SB8FW401.PRM' - a firmware image. Run the utility and follow on-screen instructions to make an update.
 
 ### Sonic Buster 8 in DOS
 
