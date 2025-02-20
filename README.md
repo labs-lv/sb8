@@ -23,20 +23,30 @@
 
 ![Arrow](/pics/arrow.gif) [Click to see more photos](#photo-gallery)
 
-Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatibles intended for retro-gaming in DOS and early Windows. The card is very easy to setup and is fully compatible with the most supported card in DOS - a Sound Blaster 2.0.
+---
+
+Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows. The card is very easy to setup and is fully compatible with the most supported card in DOS - a Sound Blaster 2.0.
 
 Sonic Buster 8 is fully compatible with SB2.0 in terms of 8-bit mono PCM/ADPCM audio and FM music playback. But it goes beyond that by adding a PC-Speaker input, a stereo CD/Aux audio input and a super-quiet onbord analog mixer with individual volume controls.
 
 The firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original. So, basically, Sonic Buster 8’s sample playback capabilities are the same as Sound Blaster 2.0’s, but it also extends Sound Blaster 2.0 in many ways:
 
-- **Using OPL3 FM chip instead of OPL2 for FM music playback.** OPL3 is fully compatible with OPL2 and sounds the same, but can play more advanced music in games that support OPL3. It also has way less timing issues with games running on 486 or faster machines.  
+- **Using OPL3 FM chip instead of OPL2 for FM music playback.** OPL3 is fully compatible with OPL2 and sounds the same, but can play more advanced music in games that support OPL3. It also has way less timing issues with games running on 486 or faster machines.
+
 - **CD/Aux stereo input** for connecting CD-ROM audio or any other sound source like a MIDI sound module for example.
+
 - **PC-Speaker input** for routing beeper sounds to the audio output of the card instead of an internal computer speaker. For the most ancient games.
+
 - **Super quiet (around -98dB RMS) analog audio path**, so no more Sound Blaster background noise from the speakers.
+
 - **Firmware is updateable from DOS.**
+
 - **Works on systems which does not have a 14.32MHz clock on ISA bus**, which is a problem for the original Sound Blaster that requires it.
+
 - **Doesn’t need a -5V power rail to operate**, as some PSUs does not provide it.
+
 - **Works with 6/8/12MHz ISA bus speeds.**
+
 - **An ability to disable Adlib functionality for port 388H** by removing JP4.
 
 ## Configuration
@@ -80,6 +90,9 @@ Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during O
 ## ![Speaker](/pics/speaker1.gif) PC-Speaker input 
 ![PC-Speaker input](/pics/pcspk.jpg)
 
+This is made for very old games that does not have any other sound support except the PC-Speaker.
+To make PC-Speaker beeps audible on the output of Sonic Buster 8
+
 A 2-pin connector is used for connecting PC-Speaker header of a motherboard to the Sonic Buster 8. It is usually marked as SPK or SPEAKER and have 4 pins, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
 
 If there is no speaker signal present, please check its gain setting on the back panel of the card or try swapping the connected pins.
@@ -108,8 +121,9 @@ Audio output accepts standard stereo mini-jack connection and can be fed to an a
 
 Download ![Download](/pics/download.gif) [SB8VER.ZIP](/downloads/SB8VER.ZIP) utility to check if your Sonic Buster 8 firmware is up to date.
 
-![New](/pics/new.gif) ![Download](/pics/download.gif) [SB8FW401.ZIP](/downloads/SB8FW401.ZIP) - **Sonic Buster 8 firmware v4.01**. This update fixes DMA timing issues on some machines and is recommended for all Sonic Buster 8 users.\
-Download the archive, extract to a separate directory and run `SB8FLASH.EXE`. Follow on-screen instructions to make an update.\
+![New](/pics/new.gif) ![Download](/pics/download.gif) [SB8FW401.ZIP](/downloads/SB8FW401.ZIP) - **Sonic Buster 8 firmware v4.01**.\
+This update fixes DMA timing issues on some machines and is recommended for all Sonic Buster 8 users.\
+Download the archive, extract to a separate directory and run `SB8FLASH.EXE`. Follow on-screen instructions to make an update.
 
 ![Warning](/pics/warn.gif) ***The update utility should NOT be run from Windows multi-tasking environment! Also make sure that no other programs are using Sonic Buster 8 hardware during the update when running it from DOS!***
 
