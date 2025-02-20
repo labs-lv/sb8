@@ -51,17 +51,17 @@ The firmware is based on a reverse-engineered SB2.0 firmware and is written enti
 
 ## Configuration
 **System requirements:** \
-IBM PC XT / AT 286, 386, 486, Pentium with one free 8/16-bit ISA slot ![Computer](/pics/computer.gif) 
+IBM PC XT / AT 286, 386, 486 or Pentium with one free 8/16-bit ISA slot ![Computer](/pics/computer.gif) 
 
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
-Hardware configuration is done by selecting I/O port, IRQ and DMA with JP1, JP2 and JP3 jumpers respectively. Make sure the computer is switched off before adjusting the settings.
+Hardware configuration is made by selecting I/O port, IRQ and DMA with JP1, JP2 and JP3 jumpers respectively. Make sure the computer is switched off before adjusting the settings.
 
 The most common configuration is 220H for I/O port, 5 for IRQ and 1 for DMA:
 
 ![Jumpers](/pics/sb8jumpers.jpg)
 
-To tell DOS software which settings are selected by the jumpers, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
+To tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
 ```
 SET BLASTER = A220 I5 D1 T3
 ```
@@ -71,17 +71,21 @@ Where: \
 `Ix` – IRQ number (3/5/7)\
 `Tx` – Sound Blaster model, where 3 is for SB 2.0, so is for the Sonic Buster 8
 
-![Warning](/pics/warn.gif) *The parameters will take effect only after system reboot.*
+> ![Warning](/pics/warn.gif) *The parameters will take effect only after system reboot.*
+
+---
 
 To use Sonic Buster 8 in games just setup it as a Sound Blaster 2.0 or let the game to autodetect it:
 
 ![Detect](/pics/crt1.jpg)
 
-Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, if supported by the game, OPL3 can be selected instead for advanced FM music playback:
+Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, for advanced music playback it can be manually changed to OPL3 if the game supports it:
 
 ![OPL3](/pics/crt2.jpg)
 
 ![Set](/pics/crt3.jpg)
+
+---
 
 Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during OS installation or by running Control Panel -> Add New Hardware wizard:
 
@@ -90,14 +94,15 @@ Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during O
 ## ![Speaker](/pics/speaker1.gif) PC-Speaker input 
 ![PC-Speaker input](/pics/pcspk.jpg)
 
-This is made for very old games that does not have any other sound support except the PC-Speaker.
-To make PC-Speaker beeps audible on the output of Sonic Buster 8
+This is made for very old games that lack any sound support except the PC-Speaker.
+
+To make PC-Speaker audible on the output of Sonic Buster 8 connect...
 
 A 2-pin connector is used for connecting PC-Speaker header of a motherboard to the Sonic Buster 8. It is usually marked as SPK or SPEAKER and have 4 pins, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
 
 If there is no speaker signal present, please check its gain setting on the back panel of the card or try swapping the connected pins.
 
-![Warning](/pics/warn.gif) *This input accepts only PC-Speaker signal and is not intended for other audio sources.*
+> ![Warning](/pics/warn.gif) *This input accepts only PC-Speaker signal and is not intended for other audio sources.*
 
 ## ![CD](/pics/cdspin.gif) CD/Aux input 
 ![CD/AUX](/pics/cdaux.jpg)
@@ -114,18 +119,18 @@ When the card's output is connected to an amplifier or active speakers it is rec
 ## Audio output
 Audio output accepts standard stereo mini-jack connection and can be fed to an amplified sound system or directly to headphones.
 
-> ![Caution](/pics/warn.gif) Caution: Using headphones with excessive volume levels can damage your ears!
+> ![Caution](/pics/warn.gif) *CAUTION: Using headphones with excessive volume levels can damage your ears!*
 
 ## Firmware updates
 **Latest firmware version is 4.01**
 
 Download ![Download](/pics/download.gif) [SB8VER.ZIP](/downloads/SB8VER.ZIP) utility to check if your Sonic Buster 8 firmware is up to date.
 
+> ![Warning](/pics/warn.gif) *The update utility should NOT be run from Windows multi-tasking environment! Also make sure that no other programs are using Sonic Buster 8 hardware during the update when running it from DOS!*
+
 ![New](/pics/new.gif) ![Download](/pics/download.gif) [SB8FW401.ZIP](/downloads/SB8FW401.ZIP) - **Sonic Buster 8 firmware v4.01**.\
 This update fixes DMA timing issues on some machines and is recommended for all Sonic Buster 8 users.\
 Download the archive, extract to a separate directory and run `SB8FLASH.EXE`. Follow on-screen instructions to make an update.
-
-![Warning](/pics/warn.gif) ***The update utility should NOT be run from Windows multi-tasking environment! Also make sure that no other programs are using Sonic Buster 8 hardware during the update when running it from DOS!***
 
 ## Photo gallery
 ![1](/pics/gall/1.jpg)
