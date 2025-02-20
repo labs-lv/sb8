@@ -3,11 +3,15 @@
 ### Stock status:
 ![Hot](/pics/hot.gif) <b>(19-02-2025) IN STOCK!</b> ![Hot](/pics/hot.gif) \
 ![Mailme](/pics/mailme.gif) <b>Please PM me on VOGONS.ORG (link below) or drop an e-mail to eugenetongue@gmail.com to make an order.</b>
+
 ---
+
 ![Update](/pics/update.gif) [Latest firmware update](#firmware-updates) (v4.01)
 
 ![New](/pics/new.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
+
 ---
+
 [Configuration](#configuration) \
 [PC-Speaker input](#pc-speaker-input) \
 [CD/Aux audio input](#cdaux-input) \
