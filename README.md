@@ -1,7 +1,7 @@
 ## ![Music](/pics/facemusic.gif) Welcome to Sonic Buster 8 home page!
 
 ### Stock status:
-![Hot](/pics/hot.gif) <b>(19-02-2025) IN STOCK!</b> ![Hot](/pics/hot.gif) \
+![Hot](/pics/hot.gif) <b>(19-02-2025) IN STOCK !</b> \
 ![Mailme](/pics/mailme.gif) <b>Please PM me on VOGONS.ORG (link below) or drop an e-mail to eugenetongue@gmail.com to make an order.</b>
 
 ---
@@ -12,12 +12,12 @@
 
 ---
 
-[Configuration](#configuration) \
+<!-- [Configuration](#configuration) \
 [PC-Speaker input](#pc-speaker-input) \
 [CD/Aux audio input](#cdaux-input) \
 [Volume controls](#manual-volume-controls) \
 [Audio output](#audio-output) \
-<!-- [Programming the Sonic Buster 8](#programming-the-sonic-buster-8) -->
+[Programming the Sonic Buster 8](#programming-the-sonic-buster-8) -->
 
 ![Sonic Buster 8](/pics/sb8b.jpg)
 
@@ -45,7 +45,8 @@ IBM PC XT / AT 286, 386, 486, Pentium with one free 8/16-bit ISA slot ![Computer
 
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
-Hardware configuration is done by selecting I/O port, IRQ and DMA values with jumpers JP1, JP2 and JP3 respectively. Make sure the computer is switched off before changing the settings. \
+Hardware configuration is done by selecting I/O port, IRQ and DMA with JP1, JP2 and JP3 jumpers respectively. Make sure the computer is switched off before adjusting the settings.
+
 The most common configuration is 220H for I/O port, 5 for IRQ and 1 for DMA:
 
 ![Jumpers](/pics/sb8jumpers.jpg)
@@ -60,7 +61,7 @@ Where: \
 `Ix` – IRQ number (3/5/7)\
 `Tx` – Sound Blaster model, where 3 is for SB 2.0, so is for the Sonic Buster 8
 
-![Warning](/pics/warn.gif) *The parameters will take effect after system reboot.*
+![Warning](/pics/warn.gif) *The parameters will take effect only after system reboot.*
 
 To use Sonic Buster 8 in games just setup it as a Sound Blaster 2.0 or let the game to autodetect it:
 
@@ -69,6 +70,7 @@ To use Sonic Buster 8 in games just setup it as a Sound Blaster 2.0 or let the g
 Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, if supported by the game, OPL3 can be selected instead for advanced FM music playback:
 
 ![OPL3](/pics/crt2.jpg)
+
 ![Set](/pics/crt3.jpg)
 
 Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during OS installation or by running Control Panel -> Add New Hardware wizard:
@@ -76,29 +78,25 @@ Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during O
 ![Win98](/pics/win98.jpg)
 
 ## ![Speaker](/pics/speaker1.gif) PC-Speaker input 
-A 2-pin connector is used for connecting PC-Speaker header of a motherboard to the Sonic Buster 8:
-
 ![PC-Speaker input](/pics/pcspk.jpg)
 
-On the motherboard a PC-Speaker header is usually marked as SPK or SPEAKER and have 4 pins, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
+A 2-pin connector is used for connecting PC-Speaker header of a motherboard to the Sonic Buster 8. It is usually marked as SPK or SPEAKER and have 4 pins, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
 
 If there is no speaker signal present, please check its gain setting on the back panel of the card or try swapping the connected pins.
 
 ![Warning](/pics/warn.gif) *This input accepts only PC-Speaker signal and is not intended for other audio sources.*
 
 ## ![CD](/pics/cdspin.gif) CD/Aux input 
-Audio input accepts any stereo line-level signal. Left, ground and right pins are marked as L G R:
-
 ![CD/AUX](/pics/cdaux.jpg)
 
-Use the included 3-pin cable to connect analog audio output of a CD-ROM to the card. CD/Aux input can also be used for any other audio source, for example a MIDI sound module or an output of another sound card in the system. Its gain can be adjusted with a corresponding volume pot on the back panel of the card.
+Audio input accepts any stereo line-level signal. Left, ground and right pins are marked as L G R. Use the included 3-pin cable to connect analog audio output of a CD-ROM to the card. CD/Aux input can also be used for any other audio source, for example a MIDI sound module or an output of another sound card in the system. Its gain can be adjusted with a corresponding volume pot on the back panel of the card.
 
 ## Manual volume controls
-Four volume pots on the back panel of the card are used to manually set the volume levels for PCM/ADPCM audio, FM music, PC-Speaker and CD/Aux:
+There are four volume pots on the back panel of the card for adjusting volume levels of PCM/ADPCM audio, FM music, PC-Speaker and CD/Aux:
 
 ![Volume controls](/pics/controls.jpg)
 
-If the card's output is connected to an amplifier or active speakers it is recommended to set OPL3 level to maximum (clockwise) and adjust other levels accordingly to your liking, as OPL3 has the most dynamic range and can seem to be the quietest of them all.
+When the card's output is connected to an amplifier or active speakers it is recommended to set OPL3 level to maximum (clockwise) and adjust other levels accordingly to your liking, as OPL3 has the most dynamic range and can seem to be the quietest of them all.
 
 ## Audio output
 Audio output accepts standard stereo mini-jack connection and can be fed to an amplified sound system or directly to headphones.
@@ -124,7 +122,6 @@ Download the archive, extract to a separate directory and run `SB8FLASH.EXE`. Fo
 ![6](/pics/gall/6.jpg)
 ![7](/pics/gall/7.jpg)
 ![8](/pics/gall/8.jpg)
-![9](/pics/gall/9.jpg)
 
 Prototypes:
 
