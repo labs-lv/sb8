@@ -7,7 +7,7 @@
 
 ---
 
-![Update](/pics/update.gif) [Latest firmware update](#firmware-updates) (v4.01)
+![Update](/pics/update.gif) [Latest firmware version](#firmware-updates) *is 4.01*
 
 ![New](/pics/new.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
 
@@ -66,8 +66,8 @@ Here is a list of features:
 - **An ability to disable Adlib functionality for port 388H** by removing JP4.
 
 ## Configuration
-**System requirements:** \
-IBM PC XT / AT 286, 386, 486 or Pentium with one free 8/16-bit ISA slot ![Computer](/pics/computer.gif) 
+### System requirements ![Computer](/pics/computer.gif)
+IBM PC XT / AT 286, 386, 486 or Pentium with one free 8/16-bit ISA slot 
 
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
@@ -184,6 +184,8 @@ The process is simple:
 2) Make calculations
 3) Write the result to the DSP with command 51h
 
+---
+
 #### 50h - Read DSP clock constant
 **Output:** 50h
 
@@ -211,6 +213,8 @@ The result is 324.675, which rounds up to 325
 A real playback rate of the DSP will be 14318181 / 325 = 44055 Hz
 ```
 As a result, 44055 Hz is way more accurate than 45454 Hz, which is a reality when setting Time Constant the Sound Blaster way using command 40h.
+
+---
 
 #### 51h - Write time constant
 **Output:** 51h, time_constant.HighByte, time_constant.LowByte
