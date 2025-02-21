@@ -67,7 +67,7 @@ Here is a list of features:
 
 ## Configuration
 ### System requirements ![Computer](/pics/computer.gif)
-IBM PC XT / AT 286, 386, 486 or Pentium with one free 8/16-bit ISA slot 
+IBM PC XT / AT 286, 386, 486 or Pentium with one free 8/16-bit ISA slot.
 
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
@@ -96,7 +96,7 @@ Where: \
 ---
 
 ### "Adlib enable" jumper (JP4)
-When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will not react to Adlib port (388h) commands at all, but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed on the same system and want it to play FM music when "Adlib" is selected in game setup as a music device. \
+When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed in the same system and want it to play FM music when "Adlib" is selected in game setup as a music device.
 
 Normally this jumper should remain closed.
 
@@ -126,9 +126,9 @@ Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during O
 ## ![Speaker](/pics/speaker1.gif) PC-Speaker input 
 ![PC-Speaker input](/pics/pcspk.jpg)
 
-This one is made for very old games that does not support any sound device except the PC-Speaker. It has an active filter in its audio path to round up the beeper waveform a bit and make it a little more pleasant to the ears.
+This input was added for very old games that does not support any sound device except the PC-Speaker. It has an active filter in its audio path to round up the beeper waveform a bit and make it a little more pleasant to the ears.
 
-A signal from a motherboard header should be connected to this input. A 4-pin header is usually marked as SPK or SPEAKER, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
+A signal from the motherboard header should be connected to this input. A 4-pin header is usually marked as SPK or SPEAKER, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
 
 If there is no speaker signal present at the output when it should, please check its gain setting on the back panel of the card or try swapping the connected pins.
 
@@ -180,9 +180,9 @@ If reading bytes from the DSP has failed (timed out) it means that Sonic Buster 
 Sonic Buster 8 DSP adds two new commands for setting Time Constant more precisely that doing it a regular way using command 40h.
 
 The process is simple:
-1) Read a value from the DSP with command 50h
-2) Make calculations
-3) Write the result to the DSP with command 51h
+1. Read a value from the DSP with command 50h
+2. Make calculations
+3. Write the result to the DSP with command 51h
 
 ---
 
