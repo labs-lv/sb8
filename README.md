@@ -30,11 +30,11 @@
 
 ---
 <a name="overview"></a>
-Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows environments. The card is simple to use and is fully compatible with the most supported card in DOS - Sound Blaster 2.0. Its firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original card. But while being fully playback-compatible with Sound Blaster 2.0, it also surpasses it in many ways.
+Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows environments. The card is simple to use and is fully compatible with the most supported card in DOS - Sound Blaster 2.0. Its firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original card. But being fully playback-compatible with Sound Blaster 2.0, Sonic Buster 8 also surpasses it in many ways.
 
-Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existence. It also uses 2-stage active filtering for minimizing aliasing effects of a 8-bit sound while trying to keep the high frequences in place. All this results in a much cleaner and pronounced sound with a wider audible dynamic range.
+Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existing. It also uses 2-stage active filtering for minimizing aliasing effects of a 8-bit sound while trying to keep the high frequences in place. All this results in a much cleaner and pronounced sound.
 
-For games with CD music Sonic Blaster 8 has an internal stereo CD/Aux input with a dedicated volume control on the back panel. It can also be used for connecting any other line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
+For games with CD music Sonic Blaster 8 has an internal stereo CD/Aux input with a dedicated volume control on the back panel. It can also be used for connecting any line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
 
 For very old games which do not support digital audio or FM music, Sonic Buster 8 has a PC-Speaker input with a dedicated volume pot and an active filter in the audio path, which tries very hard in making the beeper to sound a bit more pleasant. 
 
@@ -45,7 +45,7 @@ And finally it uses a better version of OPL2 chip - an OPL3 for FM music playbac
 <a name="features"></a>
 Here is a list of features:
 
-- **Fully compatible with Sound Blaster 2.0 8-bit mono PCM and ADPCM digital audio playback.** PCM playback rate up to 62500Hz. Has new SB8-specific DSP functions for retro software developers.
+- **Fully compatible with Sound Blaster 2.0 8-bit mono PCM and ADPCM digital audio playback.** PCM playback rate up to 62500Hz. Has new SB8-specific DSP functions for future retro software.
 
 - **Using OPL3 FM chip instead of OPL2 for FM music playback.** OPL3 is fully compatible with OPL2 and sounds the same, but can play more advanced music in games that support OPL3 and also has way less timing issues with games running on 486 or faster machines.
 
@@ -59,7 +59,7 @@ Here is a list of features:
 
 - **Works on systems which does not have a 14.32MHz clock on ISA bus**, which was a problem for the original Sound Blaster that required it.
 
-- **Doesn’t need a -5V power rail to operate**, as some PSUs does not provide it.
+- **Doesn’t need a -5V power rail to operate**, as some PSUs do not provide it. -5V rail was a requirement for the original Sound Blaster.
 
 - **Works with 6/8/12MHz ISA bus speeds.**
 
@@ -92,6 +92,13 @@ Where: \
 `Tx` – Sound Blaster model, where 3 is for SB 2.0, so is for the Sonic Buster 8
 
 > ![Warning](/pics/warn.gif) *The parameters will take effect only after system reboot.*
+
+---
+
+### "Adlib enable" jumper (JP4)
+When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will not react to Adlib port (388h) commands at all, but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed on the same system and want it to play FM music when "Adlib" is selected in game setup as a music device. \
+
+Normally this jumper should remain closed.
 
 ---
 
@@ -177,14 +184,14 @@ The process is simple:
 2) Make calculations
 3) Write the result to the DSP with command 51h
 
-### 50h - Read DSP clock constant
+#### 50h - Read DSP clock constant
 **Output:** 50h
 
-**Remarks:** After sending this command, read four bytes back from the DSP. These four bytes is a 32-bit value representing a DSP clock speed. The first read byte contains bits 31-24 of the value, second - bits 23-16, third - bits 15-8 and finally the last read byte contains 7-0 bits of the value. 
+**Remarks:** After sending this command, read four bytes back from the DSP. These four bytes form a 32-bit value representing the DSP clock speed. The first byte read contains bits 31-24 of the value, the second - bits 23-16, the third - bits 15-8 and finally the last byte contains 7-0 bits of the value. 
 
 This 32-bit value is always constant for the exact Sonic Buster 8 card and thus should be read only once during the init. However, it can differ between card models and revisions.
 
-After reading the clock speed, a new Time Constant should be calculated as follows:
+After reading the clock speed, a time constant should be now calculated as follows:
 
 ```
 time_constant = dsp_clock_speed / playback_rate
@@ -201,21 +208,24 @@ time_constant = 14318181 / 44100
 
 The result is 324.675, which rounds up to 325
 
-A real playback rate of the Sonic Buster 8 DSP will be 14318181 / 325 = 44055 Hz
+A real playback rate of the DSP will be 14318181 / 325 = 44055 Hz
 ```
 As a result, 44055 Hz is way more accurate than 45454 Hz, which is a reality when setting Time Constant the Sound Blaster way using command 40h.
 
-### 51h - Write time constant
-**Output:** 51h, TimeConstant.HighByte, TimeConstant.LowByte
+#### 51h - Write time constant
+**Output:** 51h, time_constant.HighByte, time_constant.LowByte
 
 **Remarks:** After calculating the Time Constant using the clock value returned by command 50h, send the two-byte result back to the DSP.
 
 The proper sequence is:
+
 1) Send command 51h
 2) Send time_constant.HighByte
 3) Send time_constant.LowByte
 
-After this command the DSP playback operation can be started.
+After this command a DSP playback operation can be started.
+
+---
 
 ## Photo gallery
 ![1](/pics/gall/1.jpg)
