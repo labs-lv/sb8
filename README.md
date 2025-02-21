@@ -24,21 +24,21 @@
 
 ![Sonic Buster 8](/pics/sb8b.jpg)
 
-![Arrow](/pics/arrow_r.gif) [Click to see more photos](#photo-gallery) ![Arrow](/pics/arrow1leftgreen.gif)
+![Arrow](/pics/arrow_r.gif)[Click to see more photos](#photo-gallery) ![Arrow](/pics/arrow1leftgreen.gif)
 
 ---
 <a name="overview"></a>
 Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows environments. The card is simple to use and is fully compatible with the most supported card in DOS - Sound Blaster 2.0. Its firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original card. But while being fully playback-compatible with Sound Blaster 2.0, it also surpasses it in many ways.
 
-Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existance. It also uses 2-stage active filtering for minimizing aliasing effect of a 8-bit sound while keeping high frequences in place. All this results in a much cleaner and pronounced sound with wider audible dynamic range.
+Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existence. It also uses 2-stage active filtering for minimizing aliasing effects of a 8-bit sound while trying to keep the high frequences in place. All this results in a much cleaner and pronounced sound with a wider audible dynamic range.
 
-For game versions with CD music Sonic Blaster 8 has an internal stereo CD/Aux input with a dedicated volume control on the back panel. It can also be used to connect any other line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
+For games with CD music Sonic Blaster 8 has an internal stereo CD/Aux input with a dedicated volume control on the back panel. It can also be used for connecting any other line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
 
 For very old games which do not support digital audio or FM music, Sonic Buster 8 has a PC-Speaker input with a dedicated volume pot and an active filter in the audio path, which tries very hard in making the beeper to sound a bit more pleasant. 
 
-Unlike any Sound Blaster sound card, Sonic Buster 8 has an analog audio mixer with four dedicated volume control pots for all its sound sources - PCM/ADPCM audio, FM music, CD/Aux and PC-Speaker.  
+Unlike any Sound Blaster, Sonic Buster 8 has an analog audio mixer with four dedicated volume control pots for all its sound sources - PCM/ADPCM audio, FM music, CD/Aux and PC-Speaker.  
 
-And finally it uses a better version of OPL2 - an OPL3 chip for FM music playback.
+And finally it uses a better version of OPL2 chip - an OPL3 for FM music playback.
 
 <a name="features"></a>
 Here is a list of features:
@@ -69,11 +69,15 @@ IBM PC XT / AT 286, 386, 486 or Pentium with one free 8/16-bit ISA slot ![Comput
 
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
 
+### Hardware settings
+
 Hardware configuration is made by selecting I/O port, IRQ and DMA with JP1, JP2 and JP3 jumpers respectively. Make sure the computer is switched off before adjusting the settings.
 
 The most common configuration is 220H for I/O port, 5 for IRQ and 1 for DMA:
 
 ![Jumpers](/pics/sb8jumpers.jpg)
+
+### Sonic Buster 8 and DOS
 
 To tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
 ```
@@ -89,11 +93,13 @@ Where: \
 
 ---
 
-To use Sonic Buster 8 in games just setup it as a Sound Blaster 2.0 or let the game to autodetect it:
+### Games setup
+
+To use Sonic Buster 8 in games just setup it as a Sound Blaster 2.0 or lower or let the game to autodetect it:
 
 ![Detect](/pics/crt1.jpg)
 
-Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, for advanced music playback it can be manually changed to OPL3 if the game supports it:
+Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, for advanced music it can be manually changed to OPL3 if the game supports it:
 
 ![OPL3](/pics/crt2.jpg)
 
@@ -101,33 +107,29 @@ Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, for ad
 
 ---
 
+### Sonic Buster 8 and Windows 9x/ME
+
 Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during OS installation or by running Control Panel -> Add New Hardware wizard:
 
 ![Win98](/pics/win98.jpg)
 
-TODO: DirectX ?
-
 ## ![Speaker](/pics/speaker1.gif) PC-Speaker input 
 ![PC-Speaker input](/pics/pcspk.jpg)
 
-This is made for very old games that lack any sound support except the PC-Speaker.
+This one is made for very old games that does not have any sound support except the PC-Speaker. It has an active filter in its audio path to round up the beeper waveform a bit and make it a little more pleasant to the ears.
 
-To make PC-Speaker audible on the output of Sonic Buster 8 connect...
+A signal from a motherboard header should be connected to this input. A 4-pin header is usually marked as SPK or SPEAKER, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
 
-A 2-pin connector is used for connecting PC-Speaker header of a motherboard to the Sonic Buster 8. It is usually marked as SPK or SPEAKER and have 4 pins, but only the two on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
-
-If there is no speaker signal present, please check its gain setting on the back panel of the card or try swapping the connected pins.
+If there is no speaker signal present at the output when it should, please check its gain setting on the back panel of the card or try swapping the connected pins.
 
 > ![Warning](/pics/warn.gif) *This input accepts only PC-Speaker signal and is not intended for other audio sources.*
 
 ## ![CD](/pics/cdspin.gif) CD/Aux input 
 ![CD/AUX](/pics/cdaux.jpg)
 
-Audio input accepts any stereo line-level signal. Left, ground and right pins are marked as L G R. Use the included 3-pin cable to connect analog audio output of a CD-ROM to the card. CD/Aux input can also be used for any other audio source, for example a MIDI sound module or an output of another sound card in the system. Its gain can be adjusted with a corresponding volume pot on the back panel of the card.
+This input accepts a line-level stereo signal. Left, ground and right pins are marked as L G R. Use the included 3-pin cable to connect analog audio output of a CD-ROM to this input. It can also be used for any other audio sources, for example a MIDI sound module or an output of another sound card in the system. The gain can be adjusted with a corresponding volume pot on the back panel of the card.
 
 ## Manual volume controls
-Sonic Buster 8 intergrates a high quality ultra-quiet analog mixer. It drastically reduces background noise which Sound Blaster was so "famous" for to a level of non existance and also uses 2-stage active filtering for reducing audible aliasing effects of a 8-bit sound while keeping high frequences in place. All this results in a much cleaner and pronounced sound with wider audible dynamic range.
-
 There are four volume pots on the back panel of the card for adjusting volume levels of PCM/ADPCM audio, FM music, PC-Speaker and CD/Aux:
 
 ![Volume controls](/pics/controls.jpg)
@@ -152,19 +154,36 @@ Download the archive, extract to a separate directory and run `SB8FLASH.EXE`. Fo
 
 ## Photo gallery
 ![1](/pics/gall/1.jpg)
+
 ![2](/pics/gall/2.jpg)
+
 ![3](/pics/gall/3.jpg)
+
 ![4](/pics/gall/4.jpg)
+
 ![5](/pics/gall/5.jpg)
+
 ![6](/pics/gall/6.jpg)
+
 ![7](/pics/gall/7.jpg)
+
 ![8](/pics/gall/8.jpg)
 
 ---
 
-**Prototypes:**
+**Prototype #1:**
 
+![Proto](/pics/proto/p2-1.jpg)
 
+---
+
+**Prototype #1:**
+
+![Proto](/pics/proto/p3.jpg)
+
+![Proto](/pics/proto/p2.jpg)
+
+![Proto](/pics/proto/p1.jpg)
 
 <!-- ![Up](/pics/finger_up.gif) [Back to top](#music-welcome-to-sonic-buster-8-home-page) -->
 
