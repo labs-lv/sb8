@@ -22,7 +22,7 @@
 ![Arrow](/pics/arrow_sm5.gif) [Audio output](#audio-output) \
 ![Arrow](/pics/arrow_sm5.gif) [Firmware updates](#firmware-updates) \
 ![Arrow](/pics/arrow_sm5.gif) [New DSP functions](#new-dsp-functions) \
-![Arrow](/pics/arrow_sm5.gif) [Photo gallery](#photo-gallery) \
+![Arrow](/pics/arrow_sm5.gif) [Photo gallery](#photo-gallery)
 
 ![Sonic Buster 8](/pics/sb8b.jpg)
 
@@ -169,21 +169,18 @@ If reading bytes from the DSP was successfull it means that Sonic Buster 8 is pr
 
 If reading bytes from the DSP has failed (timed out) it means that Sonic Buster 8 card is not present in the system.
 
-### New way of setting time constant
+### Setting accurate time constant
 Sonic Buster 8 DSP adds two new commands for setting Time Constant more precisely that doing it a regular way using command 40h.
 
-The process of setting precise time constant is simple:
+The process is simple:
 1) Read a value from the DSP with command 50h
 2) Make calculations
 3) Write the result to the DSP with command 51h
 
 ### 50h - Read DSP clock constant
-
-```
 **Output:** 50h
 
 **Remarks:** After sending this command, read four bytes back from the DSP. These four bytes is a 32-bit value representing a DSP clock speed. The first read byte contains bits 31-24 of the value, second - bits 23-16, third - bits 15-8 and finally the last read byte contains 7-0 bits of the value. 
-```
 
 This 32-bit value is always constant for the exact Sonic Buster 8 card and thus should be read only once during the init. However, it can differ between card models and revisions.
 
@@ -198,19 +195,17 @@ The result should be rounded to the closest 2-byte integer value and sent back t
 Example:
 ```
 If we need to set playback rate to 44100 Hz
-And command 50h returned 14318181
+and command 50h returned 14318181
 
 time_constant = 14318181 / 44100
 
 The result is 324.675, which rounds up to 325
 
-A real playback rate of the Soinc Buster 8 DSP will be 14318181 / 325 = 44055 Hz
+A real playback rate of the Sonic Buster 8 DSP will be 14318181 / 325 = 44055 Hz
 ```
-44055 Hz is way more accurate than 45454 Hz, which is a reality when setting Time Constant the Sound Blaster way using command 40h.
+As a result, 44055 Hz is way more accurate than 45454 Hz, which is a reality when setting Time Constant the Sound Blaster way using command 40h.
 
-## 51h - Write time constant
-
-```
+### 51h - Write time constant
 **Output:** 51h, TimeConstant.HighByte, TimeConstant.LowByte
 
 **Remarks:** After calculating the Time Constant using the clock value returned by command 50h, send the two-byte result back to the DSP.
@@ -219,7 +214,6 @@ The proper sequence is:
 1) Send command 51h
 2) Send time_constant.HighByte
 3) Send time_constant.LowByte
-```
 
 After this command the DSP playback operation can be started.
 
