@@ -12,34 +12,38 @@
 
 ---
 
+![Arrow](/pics/arrow_sm5.gif) [Overview](#overview) \
+![Arrow](/pics/arrow_sm5.gif) [Features](#features) \
 ![Arrow](/pics/arrow_sm5.gif) [Configuration](#configuration) \
-![Arrow](/pics/arrow_sm5.gif) [PC-Speaker input](#pc-speaker-input) \
-![Arrow](/pics/arrow_sm5.gif) [CD/Aux audio input](#cdaux-input) \
+![Arrow](/pics/arrow_sm5.gif) [PC-Speaker input](#speaker-pc-speaker-input) \
+![Arrow](/pics/arrow_sm5.gif) [CD/Aux audio input](#cd-cdaux-input) \
 ![Arrow](/pics/arrow_sm5.gif) [Volume controls](#manual-volume-controls) \
 ![Arrow](/pics/arrow_sm5.gif) [Audio output](#audio-output) \
+![Arrow](/pics/arrow_sm5.gif) [Firmware updates](#firmware-updates) \
 ![Arrow](/pics/arrow_sm5.gif) [Programming the Sonic Buster 8](#programming-the-sonic-buster-8)
 
 ![Sonic Buster 8](/pics/sb8b.jpg)
 
-![Arrow](/pics/arrowr.gif) [Click to see more photos](#photo-gallery) ![Arrow](/pics/arrow1leftgreen.gif)
+![Arrow](/pics/arrow_r.gif) [Click to see more photos](#photo-gallery) ![Arrow](/pics/arrow1leftgreen.gif)
 
 ---
+<a name="overview"></a>
+Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows environments. The card is simple to use and is fully compatible with the most supported card in DOS - Sound Blaster 2.0. Its firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original card. But while being fully playback-compatible with Sound Blaster 2.0, it also surpasses it in many ways.
 
-Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows environments. The card is simple to use and is fully compatible with the most supported card in DOS - Sound Blaster 2.0. Its firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original card. 
+Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existance. It also uses 2-stage active filtering for minimizing aliasing effect of a 8-bit sound while keeping high frequences in place. All this results in a much cleaner and pronounced sound with wider audible dynamic range.
 
-But while being fully playback-compatible with Sound Blaster 2.0, it also surpasses it in many ways.
-
-Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is so "famous" for) to a level of non-existance. It also uses 2-stage active filtering for minimizing aliasing effect of a 8-bit sound while keeping high frequences in place. All this results in a much cleaner and pronounced sound with wider audible dynamic range.
-
-For game versions with CD music Sonic Blaster 8 has an internal stereo CD/Aux audio input, also with a dedicated volume control on the back panel. But this input can also be used to connect any other line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
+For game versions with CD music Sonic Blaster 8 has an internal stereo CD/Aux input with a dedicated volume control on the back panel. It can also be used to connect any other line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
 
 For very old games which do not support digital audio or FM music, Sonic Buster 8 has a PC-Speaker input with a dedicated volume pot and an active filter in the audio path, which tries very hard in making the beeper to sound a bit more pleasant. 
 
-And finally Sonic Buster 8 uses a better version of OPL2 - an OPL3 chip for FM music playback.
+Unlike any Sound Blaster sound card, Sonic Buster 8 has an analog audio mixer with four dedicated volume control pots for all its sound sources - PCM/ADPCM audio, FM music, CD/Aux and PC-Speaker.  
 
-Here is a list a features:
+And finally it uses a better version of OPL2 - an OPL3 chip for FM music playback.
 
-- **Fully compatible with Sound Blaster 2.0 8-bit mono PCM and ADPCM digital audio playback.** PCM playback rate up to 62500Hz. Offers new SB8-specific DSP functions for software developers.
+<a name="features"></a>
+Here is a list of features:
+
+- **Fully compatible with Sound Blaster 2.0 8-bit mono PCM and ADPCM digital audio playback.** PCM playback rate up to 62500Hz. Has new SB8-specific DSP functions for retro software developers.
 
 - **Using OPL3 FM chip instead of OPL2 for FM music playback.** OPL3 is fully compatible with OPL2 and sounds the same, but can play more advanced music in games that support OPL3 and also has way less timing issues with games running on 486 or faster machines.
 
