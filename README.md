@@ -81,7 +81,7 @@ The most common configuration is 220H for I/O port, 5 for IRQ and 1 for DMA:
 
 ### DOS configuration
 
-To tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
+In order to tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
 ```
 SET BLASTER = A220 I5 D1 T3
 ```
@@ -104,12 +104,11 @@ Normally this jumper should remain closed.
 
 ### Games configuration
 
-To use Sonic Buster 8 in games just setup it as a Sound Blaster (version 2.0 or earlier).\
-Or let the game to autodetect it:
+In order to use Sonic Buster 8 in games just setup it as a Sound Blaster (version 2.0 or earlier).
 
 ![Detect](/pics/crt1.jpg)
 
-Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, for advanced music it can be manually changed to OPL3 if the game supports it:
+Although `Music Card:` was automatically set to `Sound Blaster FM (OPL2)`, for advanced music it can be manually changed to OPL3 if the game supports it:
 
 ![OPL3](/pics/crt2.jpg)
 
@@ -147,7 +146,7 @@ There are four volume pots on the back panel of the card for adjusting volume le
 When the card's output is connected to an amplifier or active speakers it is recommended to set OPL3 level to maximum (clockwise) and adjust other levels accordingly to your liking, as OPL3 has the widest dynamic range and can seem to be the quietest of them all.
 
 ## Audio output
-Sonic Buster 8's analog mixer provides a low-noise audio output that accepts standard stereo mini-jack connection and can be fed to an amplified sound system or directly to headphones.
+The card's analog mixer provides a low-noise audio output that accepts standard stereo mini-jack connection and can be fed to an amplified sound system or directly to headphones.
 
 > ![Caution](/pics/warn.gif) *CAUTION: Using headphones with excessive volume levels can damage your ears!*
 
@@ -163,7 +162,7 @@ This update fixes DMA timing issues on some machines and is recommended for all 
 Download the archive, extract to a separate directory and run `SB8FLASH.EXE`. Follow on-screen instructions to make an update.
 
 ## New DSP functions
-For those who is developing new software for DOS and want to support Sonic Buster 8 features (like OPL3 FM chip for example) here is a description of new DSP functions that Sonic Buster 8 adds to the Sound Blaster command set.
+For those who is developing new software for DOS and want to support Sonic Buster 8 features here is a description of new DSP functions that Sonic Buster 8 adds to the Sound Blaster command set.
 
 ### Detecting Sonic Buster 8
 Command **E5h** is used to read Sonic Buster 8 firmware version. 
@@ -217,6 +216,8 @@ When set the Sound Blaster way using command 40h, playback rate of 44100 Hz tran
 
 Here is a comparison table for some playback rates set in two different ways:
 
+```
++--------------------------------------------+
 | Requested | Real rate,  | Real rate,       |
 | rate, Hz  | cmd 40h, Hz | cmds 50h/51h, Hz |
 | --------- | ----------- | ---------------- |
@@ -224,6 +225,8 @@ Here is a comparison table for some playback rates set in two different ways:
 | 22050     | 22222       | 22061            |
 | 32768     | 33333       | 32764            |
 | 44100     | 45454       | 44055            |
++--------------------------------------------+
+```
 
 ---
 
