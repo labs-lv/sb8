@@ -3,11 +3,11 @@
 
 ### Stock status:
 ![Hot](/pics/hot.gif) <b>(19-02-2025) IN STOCK !</b> \
-![Mailme](/pics/mailme.gif) <b>Please PM me on VOGONS.ORG (link below) or drop an e-mail to eugenetongue@gmail.com to make an order.</b>
+![Mailme](/pics/mailme.gif) <b>Please PM me on VOGONS.ORG (link below) or drop an e-mail to eugenetongue@gmail.com to place an order.</b>
 
 ---
 
-![Update](/pics/update.gif) [Latest firmware version](#firmware-updates) *is 4.01*
+![Update](/pics/update.gif) [Latest firmware version](#firmware-updates) **is 4.01**
 
 ![New](/pics/new.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
 
@@ -32,13 +32,13 @@
 <a name="overview"></a>
 Sonic Buster 8 is a modern ISA sound card for PC XT (8086) / AT (286, 386, 486, Pentium) or compatible computers intended for retro-gaming in DOS and early Windows environments. The card is simple to use and is fully compatible with the most supported card in DOS - Sound Blaster 2.0. Its firmware is based on a reverse-engineered SB2.0 firmware and is written entirely from scratch for the AVR MCU, implementing all internal workings of the original card. But being fully playback-compatible with Sound Blaster 2.0, Sonic Buster 8 also surpasses it in many ways.
 
-Sonic Buster 8 intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existing. It also uses 2-stage active filtering for minimizing aliasing effects of a 8-bit sound while trying to keep the high frequences in place. All this results in a much cleaner and pronounced sound.
+The card intergrates a high quality ultra-quiet analog path, which drastically reduces background noise (which Sound Blaster is famous for) to a level of non-existing. It also uses 2-stage active filtering for minimizing aliasing effects of a 8-bit sound while trying to keep the high frequences in place. All this results in a much cleaner and pronounced sound.
 
 For games with CD music Sonic Blaster 8 has an internal stereo CD/Aux input with a dedicated volume control on the back panel. It can also be used for connecting any line-level sound source to the Sonic Buster 8's mixer, like a MIDI sound module or an output from another sound card for example.
 
 For very old games which do not support digital audio or FM music, Sonic Buster 8 has a PC-Speaker input with a dedicated volume pot and an active filter in the audio path, which tries very hard in making the beeper to sound a bit more pleasant. 
 
-Unlike any Sound Blaster, Sonic Buster 8 has an analog audio mixer with four dedicated volume control pots for all its sound sources - PCM/ADPCM audio, FM music, CD/Aux and PC-Speaker.  
+Unlike Sound Blaster, Sonic Buster 8 has an analog audio mixer with four dedicated volume control pots for all its sound sources - PCM/ADPCM audio, FM music, CD/Aux and PC-Speaker.  
 
 And finally it uses a better version of OPL2 chip - an OPL3 for FM music playback.
 
@@ -79,6 +79,15 @@ The most common configuration is 220H for I/O port, 5 for IRQ and 1 for DMA:
 
 ![Jumpers](/pics/sb8jumpers.jpg)
 
+---
+
+### "Adlib enable" jumper (JP4)
+When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed as the secornd sound card in the system and want it to play FM music when "Adlib" is selected in a game setup as a music device.
+
+Normally this jumper should remain closed.
+
+---
+
 ### DOS configuration
 
 In order to tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
@@ -95,16 +104,9 @@ Where: \
 
 ---
 
-### "Adlib enable" jumper (JP4)
-When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed in the same system and want it to play FM music when "Adlib" is selected in a game setup as a music device.
-
-Normally this jumper should remain closed.
-
----
-
 ### Games configuration
 
-In order to use Sonic Buster 8 in games just setup it as a Sound Blaster (version 2.0 or earlier).
+In order to use Sonic Buster 8 in games just configure it as a Sound Blaster (version 2.0 or earlier).
 
 ![Detect](/pics/crt1.jpg)
 
@@ -233,7 +235,7 @@ Here is a comparison table for some playback rates set in two different ways:
 #### 51h - Write time constant
 **Output:** 51h, time_constant.HighByte, time_constant.LowByte
 
-**Remarks:** After calculating the Time Constant using the clock value returned by command 50h, send the two-byte result back to the DSP.
+**Remarks:** After calculating the time constant using the clock value returned by command 50h, send the two-byte result back to the DSP.
 
 The proper sequence is:
 
