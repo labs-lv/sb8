@@ -79,7 +79,7 @@ The most common configuration is 220H for I/O port, 5 for IRQ and 1 for DMA:
 
 ![Jumpers](/pics/sb8jumpers.jpg)
 
-### Sonic Buster 8 and DOS
+### DOS configuration
 
 To tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
 ```
@@ -96,15 +96,15 @@ Where: \
 ---
 
 ### "Adlib enable" jumper (JP4)
-When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed in the same system and want it to play FM music when "Adlib" is selected in game setup as a music device.
+When JP4 is opened (removed), Sonic Buster 8's OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed in the same system and want it to play FM music when "Adlib" is selected in a game setup as a music device.
 
 Normally this jumper should remain closed.
 
 ---
 
-### Games setup
+### Games configuration
 
-To use Sonic Buster 8 in games just setup it as a Sound Blaster (version 2.0 or lower).\
+To use Sonic Buster 8 in games just setup it as a Sound Blaster (version 2.0 or earlier).\
 Or let the game to autodetect it:
 
 ![Detect](/pics/crt1.jpg)
@@ -117,7 +117,7 @@ Although `Music Card:` is automatically set to `Sound Blaster FM (OPL2)`, for ad
 
 ---
 
-### Sonic Buster 8 and Windows 9x/ME
+### Windows 9x/ME configuration
 
 Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during OS installation or by running Control Panel -> Add New Hardware wizard:
 
@@ -147,7 +147,7 @@ There are four volume pots on the back panel of the card for adjusting volume le
 When the card's output is connected to an amplifier or active speakers it is recommended to set OPL3 level to maximum (clockwise) and adjust other levels accordingly to your liking, as OPL3 has the widest dynamic range and can seem to be the quietest of them all.
 
 ## Audio output
-Audio output accepts standard stereo mini-jack connection and can be fed to an amplified sound system or directly to headphones.
+Sonic Buster 8's analog mixer provides a low-noise audio output that accepts standard stereo mini-jack connection and can be fed to an amplified sound system or directly to headphones.
 
 > ![Caution](/pics/warn.gif) *CAUTION: Using headphones with excessive volume levels can damage your ears!*
 
@@ -176,10 +176,10 @@ If reading bytes from the DSP was successfull it means that Sonic Buster 8 is pr
 
 If reading bytes from the DSP has failed (timed out) it means that Sonic Buster 8 card is not present in the system.
 
-### Setting accurate time constant
-Sonic Buster 8 DSP adds two new commands for setting Time Constant more precisely that doing it a regular way using command 40h.
+### Setting 16-bit time constant
+Thanks to the 16-bit timer, Sonic Buster 8 allows to set 16-bit time constant for setting more accurate DSP playback rate than it was with Sound Blaster using function 40h.
 
-The process is simple:
+The process of setting the time constant is simple:
 1. Read a value from the DSP with command 50h
 2. Make calculations
 3. Write the result to the DSP with command 51h
@@ -210,9 +210,20 @@ time_constant = 14318181 / 44100
 
 The result is 324.675, which rounds up to 325
 
-A real playback rate of the DSP will be 14318181 / 325 = 44055 Hz
+A real playback rate of the Sonic Buster 8 DSP will be 14318181 / 325 = 44055 Hz
 ```
-As a result, 44055 Hz is way more accurate than 45454 Hz, which is a reality when setting Time Constant the Sound Blaster way using command 40h.
+
+When set the Sound Blaster way using command 40h, playback rate of 44100 Hz transforms to 45454 Hz of real DSP rate, which is way less accurate.
+
+Here is a comparison table for some playback rates set in two different ways:
+
+| Requested | Real rate,  | Real rate,       |
+| rate, Hz  | cmd 40h, Hz | cmds 50h/51h, Hz |
+| --------- | ----------- | ---------------- |
+| 11025     | 11111       | 11030            |
+| 22050     | 22222       | 22061            |
+| 32768     | 33333       | 32764            |
+| 44100     | 45454       | 44055            |
 
 ---
 
@@ -223,9 +234,9 @@ As a result, 44055 Hz is way more accurate than 45454 Hz, which is a reality whe
 
 The proper sequence is:
 
-1) Send command 51h
-2) Send time_constant.HighByte
-3) Send time_constant.LowByte
+1. Send command 51h
+2. Send time_constant.HighByte
+3. Send time_constant.LowByte
 
 After this command a DSP playback operation can be started.
 
@@ -264,6 +275,6 @@ After this command a DSP playback operation can be started.
 
 ![Proto](/pics/proto/p1.jpg)
 
-![Up](/pics/finger_up.gif) [Back to top](#top)
+[Back to top](#top)
 
 
