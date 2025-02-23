@@ -82,7 +82,7 @@ The most common configuration is 220h for I/O port, 5 for IRQ and 1 for DMA:
 ---
 
 ### "Adlib enable" jumper (JP4)
-When JP4 is opened (removed), an OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h/2x1h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed next to the Sonic Buster 8 on the same machine and want it to play FM music when "Adlib" is selected in a game setup as a music device.
+When JP4 is opened (removed), an OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h-2x3h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed next to the Sonic Buster 8 on the same machine and want it to play FM music when "Adlib" is selected in a game setup as a music device.
 
 Normally this jumper should remain closed.
 
