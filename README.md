@@ -7,13 +7,13 @@
 
 ---
 
-![New](/pics/newnew.gif) [Read the review of Sonic Buster 8 on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
+![New](/pics/newnew.gif) [Read the Sonic Buster 8 review on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
+
+![New](/pics/new.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
 
 ---
 
 ![Update](/pics/update.gif) [Latest firmware version](#firmware-updates) **is 4.01**
-
-![New](/pics/new.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
 
 ---
 
