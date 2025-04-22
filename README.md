@@ -7,7 +7,7 @@
 
 ---
 
-![New](/pics/new.gif) [Read the Sonic Buster 8 review on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
+![New](/pics/new.gif) [Sonic Buster 8 review on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
 
 ![New](/pics/arrow_sm2.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
 
