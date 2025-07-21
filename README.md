@@ -2,18 +2,20 @@
 ## ![Music](/pics/facemusic.gif) Welcome to Sonic Buster 8 home page!
 
 ### Stock status:
-![Hot](/pics/hot.gif) <b>(19-02-2025) IN STOCK !</b> \
+![Hot](/pics/hot.gif) <b>(20-07-2025) IN STOCK !</b> \
 ![Mailme](/pics/mailme.gif) <b>Please PM me on VOGONS.ORG (link below) or drop an e-mail to eugenetongue@gmail.com to place an order.</b>
 
 ---
 
-![New](/pics/new.gif) [Sonic Buster 8 review on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
+![New](/pics/new.gif) [Sonic Buster 8 video review by root42](https://youtu.be/znpbPxCm3Yc?si=ny6Kb8xNXhz4TKZU)
 
-![New](/pics/arrow_sm2.gif) [Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
+[Sonic Buster 8 review on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
+
+[Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
 
 ---
 
-![Update](/pics/update.gif) [Latest firmware version](#firmware-updates) **is 4.01**
+[Latest firmware version](#firmware-updates) **is 4.01**
 
 ---
 
@@ -85,16 +87,61 @@ The most common configuration is 220h for I/O port, 5 for IRQ and 1 for DMA:
 
 ---
 
-### "Adlib enable" jumper (JP4)
-When JP4 is opened (removed), an OPL3 chip will be disconnected from Adlib port (388h), but will keep listening to 2x0h-2x3h and 2x8h/2x9h ports. This feature was requested by several users who have an Adlib card installed next to the Sonic Buster 8 on the same machine and want it to play FM music when "Adlib" is selected in a game setup as a music device.
+### DMACTL
 
-Normally this jumper should remain closed.
+This jumper is used to enable or disable sharing of the selected DMA channel (JP2) with the rest of the system. It is here for compatibility with SB 2.0 settings only and should remain in its default state unless you need to share the DMA channel, which is very unlikely. 
+
+| JP4 |                                   |
+|-----|-----------------------------------| 
+| 1-2 | DMA sharing is disabled (default) |
+| 2-3 | DMA sharing is enabled            |
+
+This jumper is not present on REV-A boards.
+
+---
+
+### ADLIBEN (Adlib enable)
+
+This feature was requested by several users who also have an Adlib card installed on the same machine and want it to be used for FM music instead of Sonic Buster 8 when "Adlib (388h)" is selected as a music device in game setup.
+
+| JP5   |                                  |
+|-------|----------------------------------| 
+| CLOSE | Port 388h is activated (default) |
+| OPEN  | Port 388h is inactive            |
+
+This jumper should remain closed for normal operation.
+
+When this jumper is opened, an OPL3 chip will be disconnected from Adlib port (388h), but will keep working on 2x0h-2x3h and 2x8h/2x9h ports.
+
+This jumper is JP4 on REV-A boards.
+
+---
+
+### RESET
+
+This jumper is used to select the card's reset mode.
+
+By default, Sonic Buster 8 is designed to be way more tolerant to machines faster than a low-end 486 as compared to the original SB 2.0 card. Some particular software can successfully work with Sonic Buster 8 on systems where SB 2.0 has no chances at all (for example a Crystal demo, Prince of Persia, Alone In The Dark in DMA mode and others). But Sonic Buster 8 also has an alternative reset circuit to experiment with.
+
+| JP6 |                             |
+|-----|-----------------------------|
+| 1-2 | SB 2.0 reset mode (default) |
+| 2-3 | IORDY reset mode            |
+
+It is recommened to keep it in SB 2.0 reset mode by default. But if you want to experiment with any problematic software - try setting it to IORDY mode and see how it will behave on your particular system. Please note that this mode is not compatible with everything. It was reported that Gods does not produce PCM sound when IORDY reset mode is active, but Build engine games like Duke Nukem 3D, Blood, Redneck Rampage and others startup faster in this mode than with the original SB 2.0 card.
+
+On REV-A cards it is a 2-pin jumper named BUDHLD:
+
+| JP5   |                             |
+|-------|-----------------------------|
+| OPEN  | SB 2.0 reset mode (default) |
+| CLOSE | IORDY reset mode            |
 
 ---
 
 ### DOS configuration
 
-In order to tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings on the picture above the string is:
+In order to tell DOS software which settings are selected, it is necessary to set a `BLASTER` environment variable with corresponding parameters. This is done by adding a string to `C:\AUTOEXEC.BAT`. For the hardware settings pictured above the string is:
 ```
 SET BLASTER = A220 I5 D1 T3
 ```
@@ -102,15 +149,15 @@ Where: \
 `Axxx` – I/O address (210/220/230/240)\
 `Dx` – 8-bit DMA setting (1/3)\
 `Ix` – IRQ number (3/5/7)\
-`Tx` – Sound Blaster model, where 3 is for SB 2.0, so is for the Sonic Buster 8
+`Tx` – Sound Blaster model, where 3 is for SB 2.0 as well as for Sonic Buster 8
 
-> ![Warning](/pics/warn.gif) *The parameters will take effect only after system reboot.*
+> ![Warning](/pics/warn.gif) *These parameters will take effect only after system reboot.*
 
 ---
 
 ### Games configuration
 
-In order to use Sonic Buster 8 in games just configure it as a Sound Blaster (as version 2.0 or earlier).
+In order to use Sonic Buster 8 in games just configure it as a Sound Blaster version 2.0 or earlier.
 
 ![Detect](/pics/crt1.jpg)
 
@@ -131,9 +178,9 @@ Windows 9x/ME detects Sonic Buster 8 as a `Sound Blaster or compatible` during O
 ## ![Speaker](/pics/speaker1.gif) PC-Speaker input 
 ![PC-Speaker input](/pics/pcspk.jpg)
 
-This input was added for very old games that does not support any sound device except the PC-Speaker. It has an active filter in its audio path to round up the beeper waveform a bit and make it a little more pleasant to the ears.
+This input was added for very old games that does not support any sound device except the PC-Speaker. Its audio path has an active low-pass filter to round up the beeper waveform a bit and make it a little more pleasant to the ears.
 
-A signal from the motherboard should be connected to this input. A 4-pin header on the motherboard is usually marked as SPK or SPEAKER, but only the two pins on the ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
+A signal from the motherboard should be connected to this input. A 4-pin header on the motherboard is usually marked as SPK or SPEAKER, but only the two pins on the connector ends matter. One of them is usually named VCC or SPEAK+ or just +, while the other one can be something like SPEAK- or not marked at all. Use the included 2-pin cable to connect the first one to + pin on the card and the other one to S pin.
 
 If there is no speaker signal present at the output, please check its gain setting on the back panel of the card or try swapping the connected pins.
 
@@ -252,6 +299,19 @@ After this command a DSP playback operation can be initiated.
 ---
 
 ## Photo gallery
+
+**REV-B:**
+
+![1](/pics/revb/1.jpg)
+
+![2](/pics/revb/2.jpg)
+
+![3](/pics/revb/3.jpg)
+
+---
+
+**REV-A:**
+
 ![1](/pics/gall/1.jpg)
 
 ![2](/pics/gall/2.jpg)
