@@ -130,7 +130,7 @@ By default, Sonic Buster 8 is designed to be way more tolerant to machines faste
 
 It is recommened to keep it in SB 2.0 reset mode by default. But if you want to experiment with any problematic software - try setting it to IORDY mode and see how it will behave on your particular system. Please note that this mode is not compatible with everything. It was reported that Gods does not produce PCM sound when IORDY reset mode is active, but Build engine games like Duke Nukem 3D, Blood, Redneck Rampage and others startup faster in this mode than with the original SB 2.0 card.
 
-On REV-A cards it is a 2-pin jumper named BUDHLD:
+On REV-A cards it is a 2-pin jumper named BUSHLD:
 
 | JP5   |                             |
 |-------|-----------------------------|
