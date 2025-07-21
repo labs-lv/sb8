@@ -87,7 +87,7 @@ The most common configuration is 220h for I/O port, 5 for IRQ and 1 for DMA:
 
 ---
 
-### DMACTL
+### DMACTL jumper
 
 This jumper is used to enable or disable sharing of the selected DMA channel (JP2) with the rest of the system. It is here for compatibility with SB 2.0 settings only and should remain in its default state unless you need to share the DMA channel, which is very unlikely. 
 
@@ -100,7 +100,7 @@ This jumper is not present on REV-A boards.
 
 ---
 
-### ADLIBEN (Adlib enable)
+### ADLIBEN (Adlib enable) jumper
 
 This feature was requested by several users who also have an Adlib card installed on the same machine and want it to be used for FM music instead of Sonic Buster 8 when "Adlib (388h)" is selected as a music device in game setup.
 
@@ -117,7 +117,7 @@ This jumper is JP4 on REV-A boards.
 
 ---
 
-### RESET
+### RESET jumper
 
 This jumper is used to select the card's reset mode.
 
