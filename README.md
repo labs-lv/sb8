@@ -11,7 +11,7 @@
 
 [Sonic Buster 8 review on Retronautics](https://retronautics.h2o.gen.tr/home/reviews/labs-sonic-buster-8)
 
-[Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701&hilit=sonic+buster+bust)
+[Sonic Buster 8 thread on VOGONS.ORG](https://www.vogons.org/viewtopic.php?t=94701)
 
 ---
 
