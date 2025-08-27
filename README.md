@@ -89,7 +89,7 @@ The most common configuration is 220h for I/O port, 5 for IRQ and 1 for DMA:
 
 ### DMACTL jumper
 
-This jumper is used to enable or disable sharing of the selected DMA channel (JP2) with the rest of the system. It is here for compatibility with SB 2.0 settings only and should remain in its default state unless you need to share the DMA channel, which is very unlikely. 
+This jumper is used to enable or disable sharing of the selected DMA channel (JP2) with the rest of the system. It is here just for compatibility with SB 2.0 settings and should remain in its default state unless you need to share the DMA channel, which is very unlikely and not recommended. 
 
 | JP4 |                                   |
 |-----|-----------------------------------| 
@@ -102,7 +102,7 @@ This jumper is not present on REV-A boards.
 
 ### ADLIBEN (Adlib enable) jumper
 
-This feature was requested by several users who also have an Adlib card installed on the same machine and want it to be used for FM music instead of Sonic Buster 8 when "Adlib (388h)" is selected as a music device in game setup.
+This feature was requested by several users who also have an Adlib card installed on the same machine and want it to play FM music instead of Sonic Buster 8 when "Adlib (388h)" is selected as a music device in game setup.
 
 | JP5   |                                  |
 |-------|----------------------------------| 
@@ -128,7 +128,7 @@ By default, Sonic Buster 8 is designed to be way more tolerant to machines faste
 | 1-2 | SB 2.0 reset mode (default) |
 | 2-3 | IORDY reset mode            |
 
-It is recommened to keep it in SB 2.0 reset mode by default. But if you want to experiment with any problematic software - try setting it to IORDY mode and see how it will behave on your particular system. Please note that this mode is not compatible with everything. It was reported that Gods does not produce PCM sound when IORDY reset mode is active, but Build engine games like Duke Nukem 3D, Blood, Redneck Rampage and others startup faster in this mode than with the original SB 2.0 card.
+It is recommened to keep it in SB 2.0 reset mode by default. But if you want to experiment with any problematic software - try setting it to IORDY mode and see how it will behave on your particular system. Please note that this mode is not compatible with everything. It was reported that the game Gods does not produce PCM sound when IORDY reset mode is selected, but Build engine games like Duke Nukem 3D, Blood, Redneck Rampage and others startup faster in this mode than with the original SB 2.0 card.
 
 On REV-A cards it is a 2-pin jumper named BUSHLD:
 
