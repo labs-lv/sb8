@@ -3,7 +3,7 @@
 
 ### Stock status:
 ![Hot](/pics/hot.gif) <b>(20-07-2025) IN STOCK !</b> \
-![Mailme](/pics/mailme.gif) <b>Please PM me on VOGONS.ORG (link below) or drop an e-mail to eugenetongue@gmail.com to place an order.</b>
+![Mailme](/pics/mailme.gif) <b>Please drop me an e-mail to eugenetongue@gmail.com to place an order.</b>
 
 ---
 
