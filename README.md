@@ -2,8 +2,8 @@
 ## ![Music](/pics/facemusic.gif) Welcome to Sonic Buster 8 home page!
 
 ### Stock status:
-![Hot](/pics/hot.gif) <b>(20-07-2025) IN STOCK !</b> \
-![Mailme](/pics/mailme.gif) <b>Please drop me an e-mail to eugenetongue@gmail.com to place an order.</b>
+<b>IN STOCK</b> \
+![Mailme](/pics/mailme.gif) <b>Please e-mail me to eugenetongue@gmail.com if you want to make an order.</b>
 
 ---
 
