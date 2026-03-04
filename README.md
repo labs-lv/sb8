@@ -1,10 +1,6 @@
 <a name="top"></a>
 ## ![Music](/pics/facemusic.gif) Welcome to Sonic Buster 8 home page!
 
-### Stock status:
-<b>IN STOCK</b> \
-![Mailme](/pics/mailme.gif) <b>Please e-mail me to eugenetongue@gmail.com if you want to make an order.</b>
-
 ---
 
 ![New](/pics/new.gif) [Sonic Buster 8 review on YouTube by root42](https://youtu.be/znpbPxCm3Yc?si=ny6Kb8xNXhz4TKZU)
