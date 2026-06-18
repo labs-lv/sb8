@@ -46,6 +46,8 @@ Unlike the original Sound Blaster, Sonic Buster 8 features a physical analog mix
 
 Finally, it upgrades the FM synthesis hardware by utilizing a more advanced Yamaha OPL3 chip instead of the older OPL2.
 
+---
+
 <a name="features"></a>
 ### Features
 
@@ -74,6 +76,8 @@ Finally, it upgrades the FM synthesis hardware by utilizing a more advanced Yama
 IBM PC XT / AT 286, 386, 486 or Pentium or compatible system with one free 8-bit or 16-bit ISA slot.
 
 ![Sonic Buster 8 scheme](/pics/sb8sch.jpg)
+
+---
 
 ### Hardware Settings
 
@@ -119,16 +123,18 @@ This jumper should remain closed for normal operation. When opened, the internal
 
 This jumper selects the card's bus reset circuit mode.
 
+By default, Sonic Buster 8 is engineered to be much more tolerant of fast 486 and Pentium systems than an original SB 2.0 card. Certain picky games and demos can run successfully with the Sonic Buster 8 where an original Sound Blaster would completely fail (such as the *Crystal* demo, *Prince of Persia*, *Alone in the Dark* in DMA mode, etc).
+
+However, an alternative reset circuit is provided as an additional option:
+
 | JP6 |                             |
 |-----|-----------------------------|
 | 1-2 | SB 2.0 reset mode (default) |
 | 2-3 | IORDY reset mode            |
 
-By default, Sonic Buster 8 is engineered to be much more tolerant of fast 486 and Pentium systems than an original SB 2.0 card. Certain picky games and demos can run successfully with the Sonic Buster 8 where an original Sound Blaster would completely fail (such as the *Crystal* demo, *Prince of Persia*, *Alone in the Dark* in DMA mode, etc). However, an alternative reset circuit is provided as an additional option.
-
 It is recommended to keep this jumper in SB 2.0 mode by default. If you run into problematic software on a fast machine, you can try switching it to IORDY mode to see how it behaves on your specific motherboard. The idea of this mode is — when selected, it pulls the ISA bus IORDY line to GND during a DSP RESET command to insert hardware wait states. This is useful because many older games use a simple program loop to wait for the sound card to reset, but fast CPUs run through these loops too quickly, causing the game to assume the reset failed before the card can even respond. Pulling IORDY low pauses the CPU, trying to keep the expected wait loop from expiring too fast and possibly helping to initialize the card successfully.
 
-Please note that IORDY mode is not universally compatible; for example, the game Gods will not produce PCM sound when IORDY reset mode is selected. Conversely, initialization routines in Build engine games (such as *Duke Nukem 3D*, *Blood*, and *Redneck Rampage*) are much snappier in this mode than on a real SB 2.0.
+Please note that IORDY mode is not universally compatible. For example, the game Gods will not produce PCM sound when IORDY reset mode is selected. Conversely, initialization routines in Build engine games (such as *Duke Nukem 3D*, *Blood*, and *Redneck Rampage*) are much snappier in this mode than on a real SB 2.0.
 
 On REV-A cards, this feature is controlled by a 2-pin jumper named BUSHLD:
 
@@ -192,12 +198,16 @@ Using the included 2-pin cable, connect the positive pin to the `+` pin on the c
 
 > ![Warning](/pics/warn.gif) *This input is tuned for PC Speaker signal and is not designed to accept standard line-level audio sources.*
 
+---
+
 ### ![CD](/pics/cdspin.gif) CD/Aux Input 
 ![CD/AUX](/pics/cdaux.jpg)
 
 This input accepts a standard line-level stereo analog signal. The pinout is explicitly marked on the PCB layout as **L** (Left), **G** (Ground), and **R** (Right).
 
 Using the included 3-pin cable, you can connect the analog audio output of a CD-ROM drive directly to this header. It can also be used to route internal audio from other sound hardware, such as a MIDI sound module or a secondary sound card. Volume levels can be adjusted using the corresponding potentiometer on the card's bracket (see below).
+
+---
 
 ## Manual Volume Controls
 The back bracket contains four analog potentiometers to adjust volume levels for PCM/ADPCM digital audio, FM music, PC Speaker, and CD/Aux:
@@ -224,12 +234,16 @@ To update, extract the contents of the archive to a dedicated directory in DOS, 
 ## New DSP Functions
 For developers writing new DOS software or homebrew games who want to target Sonic Buster 8 capabilities directly, the card introduces several custom extensions to the classic Sound Blaster command set.
 
+---
+
 ### Detecting Sonic Buster 8
 Command `E5h` checks if Sonic Buster 8 is present and reads its firmware version.
 
 * **Command Byte:** `E5h`
 * **Execution:** After sending command `E5h` to the DSP Write port, read back exactly two consecutive bytes from the DSP Read port. The first byte returned represents the major version number, and the second byte represents the minor version number. For the Sonic Buster 8, the major version byte will always be `4`.
 * **Behavior:** If both bytes are read successfully from the data port without timing out, a Sonic Buster 8 card is present in the machine. Your application can then safely utilize its OPL3 chip or secondary DSP extensions. If the read loop times out - Sonic Buster 8 is not present in the system.
+
+---
 
 ### Setting 16-bit Time Constant
 Thanks to MCU's 16-bit hardware timer, Sonic Buster 8 allows to set a highly precise 16-bit clock time constant for digital playback. This yields more accurate sample rates than the original Sound Blaster could achieve.
