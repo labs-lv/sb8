@@ -32,6 +32,8 @@
 
 ---
 <a name="overview"></a>
+### Overview
+
 Sonic Buster 8 is a modern ISA sound card designed for IBM PC XT (8086/8088), AT (286, 386, 486, Pentium), and compatible computers. It is built  for retro-gaming in DOS and early Windows environments. The card is straightforward to use and is fully software compatible with the golden standard of DOS gaming - the Sound Blaster 2.0.
 
 Its firmware is based on a reverse-engineered SB 2.0 DSP firmware written entirely from scratch for an AVR MCU, implementing all the internal workings and timings of the original hardware. However, while remaining fully playback-compatible with the Sound Blaster 2.0, Sonic Buster 8 also surpasses it in several key ways.
@@ -246,13 +248,14 @@ Command `E5h` checks if Sonic Buster 8 is present and reads its firmware version
 ---
 
 ### Setting 16-bit Time Constant
-Thanks to MCU's 16-bit hardware timer, Sonic Buster 8 allows to set a highly precise 16-bit clock time constant for digital playback. This yields more accurate sample rates than the original Sound Blaster could achieve.
 
-The table below illustrates the real-world sample rate accuracy achieved using the Sonic Buster 8 16-bit time constant commands versus legacy Sound Blaster command `40h` methods:
+Thanks to the MCU's 16-bit hardware timer, the Sonic Buster 8 supports a precise 16-bit time constant for digital playback. This yields more accurate sample rates than the original Sound Blaster could achieve using standard command `40h`. To support this, the Sonic Buster 8 firmware provides two additional DSP commands (`50h` and `51h`) described below.
+
+This table illustrates the real-world sample rate accuracy achieved using legacy Sound Blaster command `40h` versus the Sonic Buster 8 time constant methods:
 
 ```
 +--------------------------------------------+
-| Requested | Real rate,  | Real rate,       |
+| Requested | Real rate,  | Real rate, SB8   |
 | rate, Hz  | cmd 40h, Hz | cmds 50h/51h, Hz |
 | --------- | ----------- | ---------------- |
 | 11025     | 11111       | 11030            |
@@ -270,7 +273,7 @@ The programming sequence is as follows:
 
 ---
 
-#### 50h - Read DSP Clock Constant
+#### 1. Read DSP Clock Constant (50h)
 
 * **Command Byte:** `50h`
 * **Execution:** Send command `50h`, then read back 4 consecutive bytes from the DSP data port. These 4 bytes combine to form a single, unsigned 32-bit integer representing the card's exact master clock speed in Hz.
@@ -286,9 +289,9 @@ After reading the clock constant, we calculate a time constant as our next step.
 
 ---
 
-#### 51h - Write time constant
+#### 2. Calculate 16-bit Time Constant 
 
-Time constant calculation for your target playback rate is made using this formula:
+Time constant calculation for a given target playback rate is made using this formula:
 
 ```
 time_constant = dsp_clock_constant / playback_rate
@@ -306,6 +309,10 @@ time_constant = 14318181 / 44100 = 324.675 (Rounds to 325)
 So we need to write `325` to the DSP to set the time constant.
 ```
 
+---
+
+#### 3. Write Time Constant (51h)
+
 * **Command Sequence:** `51h`, `time_constant.HighByte`, `time_constant.LowByte`
 * **Execution:** After calculating the integer time constant, write the 2-byte result to the DSP data port.
 
@@ -315,7 +322,7 @@ The byte sequence must be:
 2. Send `time_constant` High Byte (Bits 15-8)
 3. Send `time_constant` Low Byte (Bits 7-0)
 
-Once this is done, standard DMA playback modes can be safely initiated.
+**Once this is done, standard DMA playback modes can be safely initiated.**
 
 ---
 
