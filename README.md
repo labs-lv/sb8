@@ -278,10 +278,13 @@ The programming sequence is as follows:
 * **Command Byte:** `50h`
 * **Execution:** Send command `50h`, then read back 4 consecutive bytes from the DSP data port. These 4 bytes combine to form a single, unsigned 32-bit integer representing the card's exact master clock speed in Hz.
 * **Byte Ordering:** The bytes are streamed in Big-Endian format:
-* Byte 1: Bits 31-24 (Most Significant Byte)
-* Byte 2: Bits 23-16
-* Byte 3: Bits 15-8
-* Byte 4: Bits 7-0 (Least Significant Byte)
+
+```
+Byte 1: Bits 31-24 (Most Significant Byte)
+Byte 2: Bits 23-16
+Byte 3: Bits 15-8
+Byte 4: Bits 7-0 (Least Significant Byte)
+```
 
 This 32-bit value is a constant for the specific Sonic Buster 8 card and only needs to be read once during initialization. However, the value can differ between different card models and revisions.
 
@@ -291,7 +294,7 @@ After reading the clock constant, we calculate a time constant as our next step.
 
 #### 2. Calculate 16-bit Time Constant 
 
-Time constant calculation for a given target playback rate is made using this formula:
+Time constant calculation for a target playback rate is made using this formula:
 
 ```
 time_constant = dsp_clock_constant / playback_rate
@@ -302,7 +305,7 @@ The result should be rounded to the closest 2-byte integer value and sent back t
 Example:
 
 ```
-If command `50h` returned a clock constant of `14,318,181` Hz and your program requires a playback rate of **44,100 Hz**:
+If command `50h` returned a clock constant of `14,318,181` Hz and your program requires a playback rate of 44,100 Hz:
 
 time_constant = 14318181 / 44100 = 324.675 (Rounds to 325)
 
